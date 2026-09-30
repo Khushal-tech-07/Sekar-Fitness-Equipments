@@ -1,0 +1,6 @@
+{
+  "name": "Sekar Fitness Equipments",
+  "description": "Premium Quality Gym Equipments Manufacturer & Dealer in Chennai. Direct factory prices for dumbbells, Olympic plates, FID benches, squat racks, and combo packs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

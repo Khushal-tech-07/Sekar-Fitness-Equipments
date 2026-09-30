@@ -1,0 +1,99 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Public and private user account profile",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the user",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address",
+          "maxLength": 256
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User full display name",
+          "maxLength": 128
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User avatar photo URL",
+          "maxLength": 1024
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Creation timestamp in ISO or server format",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "email"]
+    },
+    "Enquiry": {
+      "title": "Enquiry",
+      "description": "Customer gym equipment quotation and order inquiry",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique enquiry reference code",
+          "maxLength": 64
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Customer full name or gym name",
+          "maxLength": 128
+        },
+        "customerPhone": {
+          "type": "string",
+          "description": "Customer contact phone or WhatsApp number",
+          "maxLength": 32
+        },
+        "deliveryLocation": {
+          "type": "string",
+          "description": "City or destination in Tamil Nadu / India",
+          "maxLength": 256
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional custom requests or specs",
+          "maxLength": 1000
+        },
+        "totalEstimatedAmount": {
+          "type": "number",
+          "description": "Total estimated amount in INR"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Auth UID of the inquiring user if logged in",
+          "maxLength": 128
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email of the inquiring user",
+          "maxLength": 256
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Submission timestamp",
+          "maxLength": 64
+        }
+      },
+      "required": ["id", "customerName", "deliveryLocation", "totalEstimatedAmount"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User account documents stored by auth UID"
+    },
+    "/enquiries/{enquiryId}": {
+      "schema": "Enquiry",
+      "description": "Quotations submitted by users or guests"
+    }
+  }
+}
